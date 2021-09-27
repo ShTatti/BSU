@@ -7,7 +7,7 @@ const int ARRAY_SIZE = 100;
 
 int main()
 {
-    ///0 new
+    ///0
     cout << "Tatti's. 14 variant." << endl;
     int arr_size;
     cout << endl << "int array size < 100 && > 1: " << endl;

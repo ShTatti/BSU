@@ -19,81 +19,20 @@ int main()
     cout << "choose 1 variant" << endl << "enter 1 if you want to enter array" << endl << "enter 2 if you want random array" <<endl;
     int variant;
     cin >> variant;
+    double* b = new double[arr_size];
     if (variant == 1)
     {
-        double* a = new double[arr_size];
-        cout << endl << "all elements of array A: " << endl;
+        cout << endl << "all elements of array B: " << endl;
         for (int i = 0; i < arr_size; i++)
         {
-            cin >> a[i];
+            cin >> b[i];
         }
-
-        double max_a = a[0];
-        for (int i = 0; i < arr_size; i++)
-        {
-            if (a[i] > max_a)
-            {
-                max_a = a[i];
-            }
-        }
-        cout << endl << "max element of array A: " << max_a;
-
-        double last_pol_a = a[0];
-        for (int i = 0; i < arr_size; i++)
-        {
-            if (a[i] > 0)
-            {
-                last_pol_a = i;
-            }
-        }
-        double sum_a = 0;
-        int i = 0;
-
-        while (i < last_pol_a)
-        {
-            sum_a += a[i];
-            i++;
-        }
-        cout << endl << "sum before max element of array A: " << sum_a;
-
-        cout << endl << "interval of array for deleting elements: ";
-        double left_interval, right_interval;
-        cin >> left_interval >> right_interval;
-
-        int new_size = arr_size;
-        i = 0;
-        while (i < new_size)
-        {
-            if ( (fabs(a[i]) >= left_interval) && (fabs(a[i]) <= right_interval))
-            {
-                for (int j = i; j < arr_size - 1; j++)
-                {
-                    a[j] = a[j + 1];
-                }
-                new_size --;
-                i--;
-            }
-            i++;
-        }
-
-        for (int i = new_size; i < arr_size; i++)
-        {
-            a[i] = 0;
-        }
-        cout << endl << "array A without elements from interval: " << endl;
-        for (int i = 0; i < arr_size; i++)
-        {
-            cout << a[i] << "; ";
-        }
-        delete[]a;
-
     }
     else if (variant == 2)
     {
         cout << endl << "interval of array for array B: ";
         int first, last;
         cin >> first >> last;
-        double* b = new double[arr_size];
         for (int i = 0; i < arr_size; i++)
         {
             b[i] = first + rand() % (last - first) + (float)1/((rand() % 10) + 0.1);
@@ -104,66 +43,69 @@ int main()
             cout << b[i] << "; ";
         }
 
-        double max_b = b[0];
-        for (int i = 0; i < arr_size; i++)
-        {
-            if (b[i] > max_b)
-            {
-                max_b = b[i];
-            }
-        }
-        cout << endl << "max element of array B: " << max_b;
 
-        double last_pol_b = b[0];
-        for (int i = 0; i < arr_size; i++)
-        {
-            if (b[i] > 0)
-            {
-                last_pol_b = i;
-            }
-        }
-        double sum_b = 0;
-        int i = 0;
-        while (i < last_pol_b)
-        {
-            sum_b += b[i];
-            i++;
-        }
-        cout << endl << "sum before max element of array B: " << sum_b;
-
-        cout << endl << "interval of array for deleting elements: ";
-        double left_interval, right_interval;
-        cin >> left_interval >> right_interval;
-        int new_size = arr_size;
-        i = 0;
-        while (i < new_size)
-        {
-            if ( (fabs(b[i]) >= left_interval) && (fabs(b[i]) <= right_interval))
-            {
-                for (int j = i; j < arr_size - 1; j++)
-                {
-                    b[j] = b[j + 1];
-                }
-                new_size --;
-                i--;
-            }
-            i++;
-        }
-        for (int i = new_size; i < arr_size; i++)
-        {
-            b[i] = 0;
-        }
-        cout << endl << "array B without elements from interval: " << endl;
-        for (int i = 0; i < arr_size; i++)
-        {
-            cout << b[i] << "; ";
-        }
-        delete[]b;
     }
     else
     {
         cout << "you have chosen not 1 or 2";
+        return 0;
     }
+
+    double max_b = b[0];
+    for (int i = 0; i < arr_size; i++)
+    {
+        if (b[i] > max_b)
+        {
+            max_b = b[i];
+        }
+    }
+    cout << endl << "max element of array B: " << max_b;
+
+    double last_pol_b = b[0];
+    for (int i = 0; i < arr_size; i++)
+    {
+        if (b[i] > 0)
+        {
+            last_pol_b = i;
+        }
+    }
+    double sum_b = 0;
+    int i = 0;
+    while (i < last_pol_b)
+    {
+        sum_b += b[i];
+        i++;
+    }
+    cout << endl << "sum before max element of array B: " << sum_b;
+
+    cout << endl << "interval of array for deleting elements: ";
+    double left_interval, right_interval;
+    cin >> left_interval >> right_interval;
+    int new_size = arr_size;
+    i = 0;
+    while (i < new_size)
+    {
+        if ( (fabs(b[i]) >= left_interval) && (fabs(b[i]) <= right_interval))
+        {
+            for (int j = i; j < arr_size - 1; j++)
+            {
+                b[j] = b[j + 1];
+            }
+            new_size --;
+            i--;
+        }
+        i++;
+    }
+    for (int i = new_size; i < arr_size; i++)
+    {
+        b[i] = 0;
+    }
+    cout << endl << "array B without elements from interval: " << endl;
+    for (int i = 0; i < arr_size; i++)
+    {
+        cout << b[i] << "; ";
+    }
+    delete[]b;
 
     return 0;
 }

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1634788868 source:c:\tatti\bsu\laba5\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+

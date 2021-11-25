@@ -9,11 +9,11 @@ public:
     int ProperFraction::GetDenominator(ProperFraction);
     void ProperFraction::FractionSum(int num);
     void ProperFraction::FractionMultiplication(int multiplier);
-    void ProperFraction::FractionDivisionn(int devider);
+    void ProperFraction::FractionDivision(int devider);
     void ProperFraction::FractionSum(ProperFraction num);
     void ProperFraction::FractionMultiplication(ProperFraction multiplier);
-    void ProperFraction::FractionDivisionn(ProperFraction devider);
-    void ProperFraction::FractionPrint();
+    void ProperFraction::FractionDivision(ProperFraction devider);
+    void ProperFraction::FractionOutput();
 
 private:
     int numerator;

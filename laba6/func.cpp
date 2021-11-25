@@ -1,9 +1,9 @@
 #include "func.h"
-#include <cmath>
+#include <stdlib.h>
 
 ProperFraction::ProperFraction(int numerator, int denominator) {
     if (denominator == 0 || abs(numerator) > abs(denominator)) {
-        cout << "Incorrect" << endl;
+        std::cout << "Incorrect" << std::endl;
         exit(1);
     }
     else {
@@ -20,7 +20,7 @@ ProperFraction::ProperFraction(const ProperFraction &origin) {
 }
 
 void ProperFraction::FractionReduction() {
-    for (int i = min(abs(numerator), abs(denominator)); i > 0; --i) {
+    for (int i = std::min(abs(numerator), abs(denominator)); i > 0; --i) {
         if (abs(numerator) % i == 0 && abs(denominator) % i == 0) {
             numerator /= i;
             denominator /= i;
@@ -60,9 +60,9 @@ void ProperFraction::FractionMultiplication(ProperFraction multiplier) {
     FractionReduction();
 }
 
-void ProperFraction::FractionDivision(int devider) {
+void ProperFraction::FractionDivision(int divider) {
     if (divider == 0) {
-        cout << "You can't divide by 0" << endl;
+        std::cout << "You can't divide by 0" << std:: endl;
         exit(1);
     } else {
         denominator *= divider;
@@ -71,9 +71,9 @@ void ProperFraction::FractionDivision(int devider) {
     FractionReduction();
 }
 
-void ProperFraction::FractionDivision(ProperFraction devider) {
+void ProperFraction::FractionDivision(ProperFraction divider) {
     if (divider.numerator == 0) {
-        cout << "You can't divide fractions because numerator is 0" << endl;
+        std::cout << "You can't divide fractions because numerator is 0" << std::endl;
         exit(1);
     } else {
         this->numerator *= divider.denominator;
@@ -83,9 +83,9 @@ void ProperFraction::FractionDivision(ProperFraction devider) {
 
 void ProperFraction::FractionOutput() {
     if (numerator * denominator < 0)
-        cout << "The fraction is " << "-" << abs(numerator) << "/" << abs(denominator) << endl;
+        std::cout << "The fraction is " << "-" << abs(numerator) << "/" << abs(denominator) << std::endl;
     else if (numerator * denominator > 0)
-        cout << "The fraction is "  << (numerator) << "/" << (denominator) << endl;
+        std::cout << "The fraction is "  << (numerator) << "/" << (denominator) << std::endl;
     else
-        cout << "The fraction is 0" << endl;
+        std::cout << "The fraction is 0" << std::endl;
 }
